@@ -4,7 +4,7 @@ import sys
 # the python virtual env executable that notebooks create
 spark.conf.set("vllm.python.executable", str(sys.executable))
 # the python virtual env executable that notebooks create
-port = "8000"
+port = "1234"#"8000"
 # vllm port
 spark.conf.set("vllm.port", port)
 
@@ -23,7 +23,7 @@ spark.conf.set("vllm.port", port)
 # MAGIC
 # MAGIC def fetchMetrics(): Unit = {
 # MAGIC   val res = sc.runOnEachExecutor(() => {
-# MAGIC     Using(Source.fromURL("http://localhost:8000/metrics"))(_.mkString)
+# MAGIC     Using(Source.fromURL(f"http://localhost:8000/metrics"))(_.mkString)
 # MAGIC   }, 500.seconds)
 # MAGIC
 # MAGIC   res.foreach { case (index, output) =>
